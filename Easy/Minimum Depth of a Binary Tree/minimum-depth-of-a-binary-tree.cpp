@@ -93,19 +93,16 @@ class Solution{
   public:
     /*You are required to complete this method*/
     int minDepth(Node *root) {
-        if (root == NULL) return 0;
+         if(root == NULL) return 0;
         
         int left = minDepth(root->left);
         int right = minDepth(root->right);
-         
-        if ((root->left == NULL && root->right != NULL) || (root->left != NULL && root->right == NULL)){
-            int ans = max (left , right) + 1;
-            return ans;
-        }
-        else {
-            int ans = min(left , right)+1;
-            return ans;
-        }
+        
+        if(left == 0) return right + 1;
+        if(right == 0) return left + 1;
+        
+        return min(left, right) + 1;
+    
     }
 };
 
