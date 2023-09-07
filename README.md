@@ -1,3 +1,5 @@
 # GFG-Solved-Problems
 
-GFG SOLUTION IN C++
+QUESTIONS OF GFG WITH THEIR SOLUTIONS
+
+Solutions are in CPP
