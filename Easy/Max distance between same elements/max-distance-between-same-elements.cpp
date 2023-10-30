@@ -8,21 +8,25 @@ class Solution{
     // your task is to complete this function
     int maxDistance(int arr[], int n)
     {
-        unordered_map <int , int> frequency;
+        //Code here
+        int maxDistance = 0;
+        unordered_map <int,int> storeElementwithIndex;
         
-        int maxDist = 0;
-        
-        for (int idx = 0 ; idx < n ; idx++){
+        for (int i = 0; i < n; i++){
             
-            if (frequency.find (arr[idx]) != frequency.end()){
-                maxDist = max (maxDist , idx - frequency[arr[idx]]);
+            if (storeElementwithIndex.find(arr[i]) != storeElementwithIndex.end()){
+                int tempDistance = i - storeElementwithIndex[arr[i]];
+                
+                if (tempDistance > maxDistance){
+                    maxDistance = tempDistance;
+                }
             }
-            
-            else frequency[arr[idx]] = idx;
+            else {
+                storeElementwithIndex[arr[i]] = i;
+            }
         }
         
-        return maxDist;
-    
+        return maxDistance;
     }
 };
 
