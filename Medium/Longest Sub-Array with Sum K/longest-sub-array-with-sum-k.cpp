@@ -8,7 +8,8 @@ class Solution{
     public:
     int lenOfLongSubarr(int A[],  int N, int K) 
     { 
-        unordered_map <int , int > prefixSumIndex;
+        // Complete the function
+         unordered_map <int , int > prefixSumIndex;
         
         int prefixSum = 0;
         int maxLength = 0;
@@ -30,7 +31,6 @@ class Solution{
             
         }
         return maxLength;
-        
     } 
 
 };
