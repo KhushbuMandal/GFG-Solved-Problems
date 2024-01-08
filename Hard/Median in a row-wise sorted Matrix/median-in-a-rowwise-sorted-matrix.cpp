@@ -11,33 +11,33 @@ using namespace std;
 class Solution{   
 public:
     int median(vector<vector<int>> &matrix, int R, int C){
-        // code here  
-        
-        int start = 1;
+        // code here     
+        int start = 0;
         int end = 2000;
-        int median = 0;
         
-        int total = R*C;  // to count the number of element
+        int total = R*C;
+        
+        int ans = -1;
         
         while (start <= end){
             int mid = (start + end) / 2;
             
-            int lessThanEqual = 0;
+            int lessThanEqual = 0;// jo mid aaya use less than equal element kitne hai
             
             for (int row = 0 ; row < R ; row++){
-                int it = upper_bound (matrix[row].begin() , matrix[row].end() , mid) - matrix[row].begin();
-                lessThanEqual += it;
+                int up = upper_bound (matrix[row].begin() , matrix[row].end() , mid) - matrix[row].begin();
+                lessThanEqual += up;
             }
             
             if (lessThanEqual > total/2){
-                median = mid;
-                end = mid-1;
-            }else { // if (lessThanEqual < total/2)
-                start = mid + 1;
+                ans =  mid;
+                end = mid -1;
+            }else {
+                start = mid +1 ;
             }
         }
         
-        return median;
+        return ans;
     }
 };
 
