@@ -36,7 +36,7 @@ class Solution{
         
         index--;
         
-        int LessThanEqual = index - 0 + 1;
+        int LessThanEqual =  index + 1;
         
         ans.push_back (LessThanEqual);
         
