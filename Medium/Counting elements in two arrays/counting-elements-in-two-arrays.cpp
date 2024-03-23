@@ -16,33 +16,34 @@ class Solution{
                                  int m, int n)
     {
     //Your code goes here
-    // how to recognize here we can use binary search here
-    // what we have notice that after the sorting if array 2 then if we have find the just grater element than the 
-    // x then before that element all the elements will be less than or eual to x
-    
-    //vector <int> a(m , 0);
+    vector <int> a;
     vector <int> b;
     
+    
+    vector <int> result;
+    
     for (int i = 0 ; i < n; i++){
-        b.push_back (arr2[i]);
+        b.push_back(arr2[i]);
+    }
+    
+    for (int i = 0 ; i < m; i++){
+        a.push_back(arr1[i]);
     }
     
     sort (b.begin() , b.end());
     
-    vector <int> ans;
     
-    for (int i = 0; i < m ; i++){
-        int index = upper_bound (b.begin() , b.end() , arr1[i]) - b.begin();
+    for (int i = 0 ; i < m ; i++){
         
-        index--;
+       // int x = a[i];
         
-        int LessThanEqual =  index + 1;
+        int index = upper_bound (b.begin() , b.end() , a[i]) - b.begin();
         
-        ans.push_back (LessThanEqual);
+        result.push_back(index);
         
     }
     
-    return ans;
+    return result;
     
     }
 };
